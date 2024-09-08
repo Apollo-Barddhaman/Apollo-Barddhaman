@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('nav a');
+
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barddhaman Apollo Hospital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #2a4d8f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #1d3768;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        nav .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav .nav-links a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            background-color: #3d5a96;
+        }
+
+        .banner {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #2a4d8f;
+        }
+
+        .banner h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .salary {
+            font-size: 22px;
+            color: #333;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .apply-now {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 35px;
+            background-color: #2a4d8f;
+            color: white;
+            font-size: 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-now:hover {
+            background-color: #1d3768;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2a4d8f;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin-top: 30px;
+            color: #1d3768;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            font-size: 18px;
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        ul li:before {
+            content: "✔";
+            color: #2a4d8f;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #contact p, #contact a {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        #contact a {
+            color: #1d3768;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #2a4d8f;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 16px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav .nav-links.active {
+                display: flex;
+            }
+
+            nav .nav-toggle {
+                display: block;
+            }
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2a4d8f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #back-to-top:hover {
+            background-color: #1d3768;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://assets.onecompiler.app/42rjhjuwn/42rjh5tu9/Add_a_heading__3_-removebg-preview.png" alt="Apollo Hospital Logo">
+    <h1>Barddhaman Apollo Hospital</h1>
+</header>
+
+<nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<div class="banner">
+    <h2>We Are Hiring!</h2>
+    <p><strong>Barddhaman Apollo Hospital</strong> is looking for:</p>
+    <p>1. Accountant (Salary: ₹15,000)</p>
+    <p>2. HR (Salary: ₹10,000)</p>
+    <p class="salary">Join our team and be part of a growing healthcare organization!</p>
+    <a href="mailto:careers@apollohospital.com" class="apply-now">Apply Now</a>
+</div>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>Barddhaman Apollo Hospital is a leading healthcare institution in R.B. Ghosh Road, Bardhaman, West Bengal. As a part of the Apollo Hospitals group, we are committed to providing comprehensive and compassionate care to our patients.</p>
+    
+    <h3>Our Mission</h3>
+    <p>Our mission is to bring healthcare of international standards within the reach of every individual. We are dedicated to providing quality healthcare with a focus on patient care, education, and research.</p>
+
+    <h3>Our Services</h3>
+    <ul>
+        <li>General Medicine</li>
+        <li>BURN UNIT 24x7</li>
+        <li>Neurosurgery</li>
+        <li>Orthopaedic</li>
+        <li>Plastic Surgery</li>
+        <li>General Surgery</li>
+        <li>Uro Surgery</li>
+        <li>Cancer Surgery</li>
+        <li>Gynae/OBS</li>
+        <li>Laser Surgery</li>
+        <li>Cosmetic Surgery</li>
+        <li>Dermatology (Skin)</li>
+        <li>Nephrology</li>
+        <li>Gastrology</li>
+        <li>Cardiology</li>
+        <li>Paediatrics</li>
+        <li>Medicine (Gen/Chest)</li>
+        <li>Dialysis</li>
+        <li>E.N.T</li>
+        <li>CT scan</li>
+        <li>USG, ECHO</li>
+        <li>Digital X-Ray</li>
+        <li>Pathology</li>
+        <li>Medicine Shop</li>
+        <li>24 hrs. Ambulance</li>
+        <li>Insurance/TPA</li>
+    </ul>
+
+    <h3>Our Values</h3>
+    <ul>
+        <li>Patient-centric care</li>
+        <li>Compassion and empathy</li>
+        <li>Quality and excellence</li>
+        <li>Integrity and transparency</li>
+        <li>Teamwork and collaboration</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or would like to schedule an appointment, please contact us at:</p>
+    <p>Phone: 7477714447 / 03424542444</p>
+    <p>Email: <a href="mailto:barddhamanapollocorporate@gmail.com">barddhamanapollocorporate@gmail.com</a></p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Barddhaman Apollo Hospital. All Rights Reserved.</p>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Smooth Scrolling
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        document.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Responsive Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
